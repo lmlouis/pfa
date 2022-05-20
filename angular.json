@@ -31,9 +31,16 @@
               "src/assets"
             ],
             "styles": [
+              "./src/app/material/custom-theme.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.*",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.*",
+              "./node_modules/jquery/dist/jquery.*"
+
+
+            ]
           },
           "configurations": {
             "production": {

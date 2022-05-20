@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/material/custom-theme"; //ajout du theme
+
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.titre-h1{
+  color: #A691F2;
+}
+/* lien hypertext */
+.lienHypertexte{
+  color: #A691F2;
+  cursor: pointer;
+  text-decoration: none;
+}
+.lienHypertexte:hover{
+  color: #643DF2;
+}
+
+.lienHypertexte span{
+  color: #643DF2;
+}
+.lienHypertexte:hover span{
+  color: #3D1FA6;
+}
+
+button:active{
+  background-color: revert;
+
+}

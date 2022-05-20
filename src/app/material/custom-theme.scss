@@ -1,0 +1,169 @@
+@use "../../../node_modules/@angular/material/index" as mat;
+@use 'sass:map';
+/*--------------------------------MODE CLAIR------------------------------------*/
+//Ma Palette de Couleur lightMode
+$custom-light: (
+  50: #FFFFFF,
+  100: #F8F8F8,
+  200: #F8F8F8,
+  300: #F8F8F8,
+  400: #F8F8F8,
+  500: #C7BBF2,
+  600: #A691F2,
+  700: #643DF2,
+  800: #3D1FA6,
+  900: #4F22F2,
+  contrast: (
+    50: #1A1D2B,
+    100: #6B6767,
+    200: #1A1D2B,
+    300: #643DF2,
+    400: #A691F2,
+    500: #A691F2,
+    600: #643DF2,
+    700: #FFFFFF,
+    800: #FFFFFF,
+    900: #FFFFFF,
+  )
+);
+// definition des couleurs primary, accent, warn en mode clair
+$light-primary: mat.define-palette($custom-light, 700, 500, 100);
+$light-accent: mat.define-palette($custom-light, 300, 900, 400);
+$light-warn: mat.define-palette($custom-light, 600, 800, 200);
+// definition du them en mode clair
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent,
+    warn: $light-warn,
+  ),
+  // Background palette for light themes.
+  status-bar: map.get($custom-light, 300),
+  app-bar:    map.get($custom-light, 100),
+  background: map.get($custom-light, 50),
+  hover:      rgba(#1A1D2B, 0.04), // TODO(kara): check style with Material Design UX
+  card:       #d6d7ca,
+  dialog:     #d6d7ca,
+  disabled-button: rgba(#1A1D2B, 0.12),
+  raised-button: #d6d7ca,
+  focused-button: rgba(#1A1D2B, 0.12),
+  selected-button: map.get($custom-light, 300),
+  selected-disabled-button: map.get($custom-light, 400),
+  disabled-button-toggle: map.get($custom-light, 200),
+  unselected-chip: map.get($custom-light, 300),
+  disabled-list-option: map.get($custom-light, 200),
+  tooltip: map.get($custom-light, 700),
+  // Forground palette for light themes.
+  base:              #1A1D2B,
+  divider:           #1A1D2B,
+  dividers:          #1A1D2B,
+  disabled:          #1A1D2B,
+  disabled-text:     #1A1D2B,
+  elevation:         #1A1D2B,
+  hint-text:         #1A1D2B,
+  secondary-text:    #1A1D2B,
+  icon:              rgba(#1A1D2B, 0.54),
+  icons:             rgba(#1A1D2B, 0.54),
+  text:              rgba(#1A1D2B, 0.87),
+  slider-min:        rgba(#1A1D2B, 0.87),
+  slider-off:        rgba(#1A1D2B, 0.26),
+  slider-off-active: rgba(#1A1D2B, 0.38),
+));
+
+//classe css du mode claire
+.lightMode{
+  @include mat.all-component-themes($light-theme);
+  @include mat.button-theme($light-theme);
+  @include mat.menu-color($light-theme);
+
+  background: #F8F8F8;
+  color: #1A1D2B;
+}
+
+/*--------------------------------MODE SOMBRE------------------------------------*/
+//Ma Palette de Couleur darkMode
+$custom-dark-mode: (
+  50: #1A1D2B,
+  100: #6B6767,
+  200: #1A1D2B,
+  300: #643DF2,
+  400: #A691F2,
+  500: #A691F2,
+  600: #643DF2,
+  700: #0E2941,
+  800: #FFFFFF,
+  900: #FFFFFF,
+  // ... continues to 900
+  contrast: (
+    50: #FFFFFF,
+    100: #0E2941,
+    200: #F8F8F8,
+    300: #F8F8F8,
+    400: #F8F8F8,
+    500: #C7BBF2,
+    600: #A691F2,
+    700: #A691F2,
+    800: #3D1FA6,
+    900: #4F22F2,
+    // ... continues to 900
+  )
+);
+
+// definition des couleurs primary, accent, warn en mode sombre
+$dark-primary: mat.define-palette($custom-dark-mode, 400, 500, 100);
+$dark-accent: mat.define-palette($custom-dark-mode, 700, 900, 400);
+$dark-warn: mat.define-palette($custom-dark-mode, 600, 800, 200);
+
+// definition du them en mode sombre
+$dark-theme: mat.define-dark-theme(
+    (
+      color: (
+        primary: $dark-primary,
+        accent: $dark-accent,
+        warn: $dark-warn,
+      ),
+      // Background palette for dark themes.
+      status-bar: black,
+      app-bar:    map.get($custom-dark-mode, 900),
+      background: #6B6767,
+      hover:      rgba(#F8F8F8, 0.04), // TODO(kara): check style with Material Design UX
+      card:       map.get($custom-dark-mode, 800),
+      dialog:     map.get($custom-dark-mode, 800),
+      disabled-button: rgba(#F8F8F8, 0.12),
+      raised-button: map.get($custom-dark-mode, 800),
+      focused-button: $custom-dark-mode,
+      selected-button: map.get($custom-dark-mode, 900),
+      selected-disabled-button: map.get($custom-dark-mode, 800),
+      disabled-button-toggle: black,
+      unselected-chip: map.get($custom-dark-mode, 700),
+      disabled-list-option: rgba(#F8F8F8, 0.12),
+      tooltip: map.get($custom-dark-mode, 700),
+      // Foreground palette for dark themes.
+      base:              #F8F8F8,
+      divider:          #F8F8F8,
+      dividers:          $custom-light,
+      disabled:          $custom-light,
+      disabled-text:     $custom-light,
+      elevation:         #1A1D2B,
+      hint-text:         $custom-light,
+      secondary-text:    $custom-light,
+      icon:              #F8F8F8,
+      icons:             #F8F8F8,
+      text:              #F8F8F8,
+      slider-min:        #F8F8F8,
+      slider-off:        rgba(#F8F8F8, 0.3),
+      slider-off-active: rgba(#F8F8F8, 0.3),
+    )
+);
+
+//classe css du mode sombre
+.darkMode{
+  @include mat.all-component-colors($dark-theme);
+  @include mat.button-theme($dark-theme);
+  @include mat.button-toggle-color($dark-theme);
+  @include mat.menu-color($dark-theme);
+  background: #1A1D2B; //#0E2941
+  color: #d6d7ca; // #A691F2
+
+}
+

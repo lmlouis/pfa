@@ -21,7 +21,7 @@ Exécuter: `ng --version`
 - Base de données : Firebase (noSQl)
 
 ***
-## Initilisation du projet
+## Initialisation du projet
 
 ### Projet Angular 
 
@@ -36,7 +36,7 @@ $ ng new pfa
 
 ```
 $ git add .
-$ git commit -m 'Initilisation du projet'
+$ git commit -m 'Initialisation du projet'
 $ git branch -M main`
 $ git remote add origin https://githubusername:<Token/Password>@github.com/githubusername/ ripository.git
 $ git push origin main
@@ -98,3 +98,84 @@ jobs:
       ## - run: npm run build --if-present
       ## - run: npm test
 ```
+
+***
+
+## Mise en place de l'environnement de Développement
+
+### Coté Front-End 
+
+- Bootstrapp 
+- Angular Material UI
+
+#### Bootstrapp 
+
+```
+$ npm install bootstrap@latest
+```
+- Ajouter de bootstrapp dans `angular.json` => `"styles": [
+  "./node_modules/bootstrap/dist/css/bootstrap.css",
+  "src/styles.scss"
+  ],`
+
+#### Angular Material
+
+```
+$ ng add @angular/material
+```
+- Choose a prebuilt theme name, or "custom" for a custom theme: `Custom`
+- Set up global Angular Material typography styles? `Yes`
+- Set up browser animations for Angular Material? `Yes`
+
+#### Module Material Angular 
+
+```
+$ ng g m material
+$ touch src/app/material/custom-theme.scss
+```
+- ajouter dans angular.json => styles : `"./src/app/material/custom-theme.scss",`
+- ajouter le theme customsié dans style.scsc `@import "app/material/custom-theme"; //ajout du theme`
+
+#### installation de firebase 
+```
+$ npm install firebase @angular/fire
+$ ng g m firebase
+```
+*** 
+### Back-end
+
+### Mise en place Router 
+ 
+```
+$ ng g m router
+```
+- Ajouter le SDK Firebase dans `environnements/environnement.ts`
+
+```
+export const environment = {
+  production: false,
+  /* Ajouter le SDK Firebase */
+  firebase:{
+    apiKey: "AIzaSyDZfWl6fBLTU7QPuCTjVw1KRVLe9O01xCU",
+    authDomain: "pfa-angular.firebaseapp.com",
+    projectId: "pfa-angular",
+    storageBucket: "pfa-angular.appspot.com",
+    messagingSenderId: "124082511456",
+    appId: "1:124082511456:web:5c29b58d5da9c368d76d05"
+  }
+
+
+};
+```
+
+***
+## Authentification
+
+```
+$ ng g c auth
+$ ng g c auth/register
+$ ng g c auth/login
+$ ng g s auth/services/auth
+$ ng g s auth/model/user
+```
+

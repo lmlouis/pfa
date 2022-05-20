@@ -1,16 +1,38 @@
+import { FourOFourComponent } from './four-o-four/four-o-four.component';
+import { RouteModule } from './router/route.module';
+import { FirebaseModule } from './firebase/firebase.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { CustomTheme } from './material/custom-theme';
+import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomTheme, //Theme Custome
+    FourOFourComponent, // Page 404
+    HomeComponent, 
+    AuthComponent, 
+    LoginComponent, 
+    RegisterComponent, 
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    MaterialModule, // Module Material
+    FirebaseModule, // Module Firebase
+    RouteModule, //Module Route
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div class="auth-container container">
+
+
+    <div class="row">
+        <div class="col-md-6 float-end"> 
+   
+            <h1 class="display-3"><mat-icon>account_circle</mat-icon> Inscription</h1>
+                <div class="form-floating mb-3">
+                    <input #userName  type="email" class="form-control" id="floatingInput" placeholder="Addresse Email" required> 
+                    <label  for="floatingInput"> <mat-icon color="primary">markunread</mat-icon> <span> Addresse Email</span> </label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input #userPassword type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe" required>
+                    <label for="floatingPassword"><mat-icon color="primary">lock</mat-icon> <span> Mot de passe</span>  </label>
+                </div>
+
+                
+                <a type="submit" mat-button mat-raised-button color="primary" style="margin-top: 5%; margin-bottom: 5%;" (click)="authService.SignUp(userName.value, userPassword.value);">Inscription</a>
+            <div class="row">
+                 <!-- API Google Authentification -->
+                <div class="col-md-6">
+                    <a type="button" mat-button mat-raised-button (click)="authService.GoogleAuth()">
+                        <mat-icon>login</mat-icon>
+                      Inscription avec Google
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-md-6">
+            <img src="../../../assets/undraw-illustration/add_user.svg" height="100%" width="95%" style="background-size: cover;">
+
+        </div>
+        <div style="margin-top: 2%; margin-bottom: 2%;" class="row bouton-inscription">
+            <a mat-button mat-flat-button routerLink="/connexion" class="lienHypertexte">J'ai déjà un compte <span class="display-6">Connexion <mat-icon></mat-icon> </span></a>
+        </div> 
+    </div>
+</div>
+

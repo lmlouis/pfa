@@ -1,6 +1,9 @@
-import { Role } from './role.model';
-import { User } from './user';
-export class Membre implements User{
+import { Role } from "src/app/auth/model/role.model";
+import { User } from "src/app/auth/model/user";
+
+
+export class Profile implements User{
+
     uid!: string;
     email!: string;
     displayName!: string;

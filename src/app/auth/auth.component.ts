@@ -1,3 +1,4 @@
+import { AuthService } from './../firebase/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AuthComponent implements OnInit {
 
   constructor() { }
+
 
   ngOnInit(): void {
   }

@@ -1,35 +1,49 @@
-
-
- 
 <div class="auth-container container">
+
+
     <div class="row">
         <div class="col-md-6 float-end"> 
-            <div class="bouton-inscription">
-                <a routerLink="/inscription" class="lienHypertexte text-right">Je souhaite adhérer à la communauté <span class="display-6">Inscription <mat-icon></mat-icon> </span></a>
-            </div>    
-            <h1 class="display-3">Authentification</h1>
-
-            <form>
-
+   
+            <h1 class="display-3"><mat-icon>account_circle</mat-icon> Authentification</h1>
                 <div class="form-floating mb-3">
-                    <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="Addresse Email"> 
-                    <label for="floatingInput"> <mat-icon color="primary">markunread</mat-icon> <span> Addresse Email</span> </label>
+                    <input #userName  type="email" class="form-control" id="floatingInput" placeholder="Addresse Email" required> 
+                    <label  for="floatingInput"> <mat-icon color="primary">markunread</mat-icon> <span> Addresse Email</span> </label>
                 </div>
                 <div class="form-floating">
-                    <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe">
-                    <label for="floatingPassword"><mat-icon color="primary">visibility_off</mat-icon> <span> Mot de passe</span>  </label>
+                    <input #userPassword type="password" class="form-control" id="floatingPassword" placeholder="Mot de passe" required>
+                    <label for="floatingPassword"><mat-icon color="primary">lock</mat-icon> <span> Mot de passe</span>  </label>
                 </div>
                 
-                <a  type="submit" mat-button mat-raised-button color="primary" style="margin-top: 5%; margin-bottom: 5%;">Connexion</a>
-               
-            </form>
+                <a type="submit" mat-button mat-raised-button color="primary" style="margin-top: 5%; margin-bottom: 5%;" (click)="authService.SignIn(userName.value, userPassword.value)">Connexion</a>
+            <div class="row">
+                <div style="margin-top: 2%; margin-bottom: 2%;" class="lienHypertexte col-md-6">
+                    <span routerLink="/oublier-mot-passe">Mot de passe oublier?</span>
+                </div>
+                 <!-- API Google Authentification -->
+                <div class="col-md-6">
+                    <a type="button" mat-button mat-raised-button (click)="authService.GoogleAuth()">
+                        <mat-icon>login</mat-icon>
+                      Connexion avec Google
+                    </a>
+                </div>
+            </div>
+
+
 
         </div>
         <div class="col-md-6">
             <img src="../../../assets/undraw-illustration/account.svg" height="100%" width="95%" style="background-size: cover;">
+
         </div>
+        <div style="margin-top: 2%; margin-bottom: 2%;" class="row bouton-inscription">
+            <a mat-button mat-flat-button routerLink="/inscription" class="lienHypertexte text-right">Je souhaite créer mon compte <span class="display-6">Inscription <mat-icon></mat-icon> </span></a>
+        </div> 
     </div>
 </div>
 
 
+
+
+
+ 
 

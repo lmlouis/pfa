@@ -1,3 +1,4 @@
+import { NavigationComponent } from './navigation/navigation.component';
 import { FourOFourComponent } from './four-o-four/four-o-four.component';
 import { RouteModule } from './router/route.module';
 import { FirebaseModule } from './firebase/firebase.module';
@@ -11,6 +12,11 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { BarreLateralComponent } from './barre-lateral/barre-lateral.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -22,6 +28,12 @@ import { RegisterComponent } from './auth/register/register.component';
     AuthComponent, 
     LoginComponent, 
     RegisterComponent, 
+    DashboardComponent, 
+    VerifyEmailComponent, 
+    ForgotPasswordComponent, 
+    NavigationComponent,
+    BarreLateralComponent,
+    ProfileComponent
   
   ],
   imports: [

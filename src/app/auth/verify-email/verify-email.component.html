@@ -1,0 +1,37 @@
+
+
+<div class="auth-container container">
+
+
+    <div class="row">
+        <div class="col-md-6 float-end"> 
+   
+            <h1 class="display-3"><mat-icon>insert_emoticon</mat-icon> Féliciation </h1>
+            <h3>Merci de vous être inscrit</h3>
+            <div class="formGroup" *ngIf="authService.userData as user">
+              <p class="text-center">Nous avons envoyé un e-mail de confirmation à l'adresse <strong>{{user.email}}</strong>.</p>
+              <p class="text-center">Veuillez vérifier votre e-mail et cliquer sur le lien pour vérifier votre adresse e-mail.</p>
+            </div>
+            <!-- SendVerificationMail() method  authService Api -->
+            <div class="formGroup">
+                <button color="primary" mat-button mat-stroked-button class="btn" (click)="authService.SendVerificationMail()">
+                    <mat-icon>arrow_forward</mat-icon>
+                Renvoi de l'email de verification
+                </button>
+            </div>
+        </div>
+                            <!-- API Google Authentification -->
+        <div class="col-md-6" >
+            <div style="margin-top: 2%; margin-bottom: 2%;" class="row bouton-inscription">
+                <a mat-button mat-flat-button routerLink="/connexion" class="lienHypertexte"><mat-icon>login</mat-icon> Passer à la  <span class="display-6">Connexion  </span></a>
+            </div> 
+        </div>
+    </div>
+
+
+<div class="col-md-6">
+            <img src="../../../assets/undraw-illustration/succesffully.svg" height="100%" width="95%" style="background-size: cover;">
+
+</div>
+
+</div>

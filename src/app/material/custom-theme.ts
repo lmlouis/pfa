@@ -1,5 +1,5 @@
 import {Component, HostBinding, OnInit} from "@angular/core";
-import {FormControl} from "@angular/forms";
+import {FormControl, NgModel} from "@angular/forms";
 @Component({
   selector: 'material-module',
   templateUrl: './mode-sombre-clair.html',

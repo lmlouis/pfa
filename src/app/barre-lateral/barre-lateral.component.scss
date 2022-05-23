@@ -1,0 +1,62 @@
+/*---------------------------Menu Latérale------------------------*/
+.barre-latéral-container {
+    //width:20%;
+    width: 100%;
+    height: 100%;
+    float: left;
+    background: rgb(0, 0, 0, 0.0);
+  }
+  
+  .sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Container-sidenav {
+    width: 85%;
+  }
+  
+  .position-menu{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  
+  
+  
+  
+  
+  
+  @media screen and (max-width: 812px) {
+    .Text-MenuPrincipale {display: none;}
+    span a.Menu {
+      float: right;
+      display: block;
+    }
+    a.Item-MenuPrincipale{
+      padding: 7px;
+    }
+  
+  
+    .barre-latéral-container {
+      width:80%;
+      height: 100%;
+      //border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .Navigation{
+      justify-content: center;
+      display: block;
+  
+    }
+    .logo { float: right;
+    margin-bottom: 5px;}
+    .Item-MenuPrincipale{margin-top: 5px; }
+    span a.Menu{justify-content: center; text-align: center;
+                padding: 0;}
+  
+  }

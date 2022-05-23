@@ -177,5 +177,19 @@ $ ng g c auth/register
 $ ng g c auth/login
 $ ng g s auth/services/auth
 $ ng g s auth/model/user
+
+$ ng g c auth/forgotPassword
+$ ng g c auth/verifyEmail
+$ ng g c dashboard
+
+$ ng g i auth/model/user
+$ ng g s firebase/services/auth
 ```
 
+## Guard 
+
+```
+$ ng g guard router/guard/auth
+
+{path: 'dashboard', canActivate: [AuthGuard], component: DashboardComponent},
+```

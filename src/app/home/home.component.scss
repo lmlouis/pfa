@@ -13,19 +13,19 @@
  */
 
  
-div#langing-page{
-    background-image: url("../../assets/img/home.jpg");
+ div#langing-page{
+    background-image: url("../../assets/undraw-illustration/community.svg");
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 100%;
+     grid-auto-rows: 100%;
     min-height: 800px;
 }
 div {
   
-  background-color: rgb(255, 255, 255, 0.2);
+  background-color: rgb(255, 255, 255, 0.0);
 
 }
 

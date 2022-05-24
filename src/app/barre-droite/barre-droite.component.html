@@ -1,0 +1,41 @@
+<div class="d-flex flex-column flex-shrink-0 p-3">
+
+    <div class="dropdown">
+      <a href="#" class=" dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../../assets/undraw-illustration/profile_picture.png" alt="" width="150" height="auto" class="rounded-circle me-2"  >
+      </a>
+      <ul class="dropdown-menu  text-small " aria-labelledby="dropdownUser1">
+        <li><a  routerLink="/mon-profile" class="dropdown-item" mat-menu mat-menu-item><mat-icon>person</mat-icon> voir mon profile</a></li>
+        <li><a srouterLink="" class="dropdown-item" mat-menu mat-menu-item><mat-icon>work</mat-icon> profile entreprise</a></li>
+        <li><a  routerLink="" class="dropdown-item" mat-menu mat-menu-item><mat-icon>people</mat-icon> profile communauté</a></li>
+
+        <li><hr class="dropdown-divider"></li>
+        <li><a  routerLink="/oublier-mot-passe" class="dropdown-item" mat-menu mat-menu-item><mat-icon>lock</mat-icon> Réinitiliser mon Mot de passe</a></li>
+        <li><a  (click)="authService.SignOut()" class="dropdown-item" mat-menu mat-menu-item><mat-icon>exit_to_app</mat-icon> Deconnexion</a></li>
+      </ul>
+    </div>
+
+
+
+
+ 
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a routerLink="" mat-menu mat-menu-item><mat-icon>home</mat-icon> Acceuil</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="" mat-menu mat-menu-item><mat-icon>dashboard</mat-icon> Dashboard</a>
+    </li>
+    <hr>
+    <li class="nav-item">
+      <a routerLink="" mat-menu mat-menu-item><mat-icon>person_add</mat-icon> Créer entreprise</a>
+      <a routerLink="" mat-menu mat-menu-item><mat-icon>group_add</mat-icon> Créer communauté</a>
+      <a routerLink="" mat-menu mat-menu-item><mat-icon>admin_panel_settings</mat-icon> Passer en mode admin</a>
+    </li>
+    
+  </ul>
+  <hr>
+
+</div>
+

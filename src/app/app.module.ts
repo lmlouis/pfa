@@ -17,6 +17,7 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { BarreLateralComponent } from './barre-lateral/barre-lateral.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BarreDroiteComponent } from './barre-droite/barre-droite.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProfileComponent } from './profile/profile.component';
     ForgotPasswordComponent, 
     NavigationComponent,
     BarreLateralComponent,
-    ProfileComponent
+    ProfileComponent,
+    BarreDroiteComponent
   
   ],
   imports: [

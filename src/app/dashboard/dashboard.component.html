@@ -7,59 +7,22 @@
   <div class="col-md-6">
 <!--..............................................................................Ajouter un post................................................................;;-->
     <div class="addPost">
-      <mat-card class="row">
-        <mat-card-content class="card-body">
-          <div>
-            <mat-icon color="primary">photo_album</mat-icon>
-            <span>Ajouter une image</span>
-          </div>
-        </mat-card-content>
-        <mat-card-header class=""
-                         style="padding-bottom: 20px; border-bottom: 1px solid lightgray;">
-          <img
-            mat-card-avatar
-            src="../../assets/undraw-illustration/profile_picture.png">
-           <form style="width: 100%;" >
-            <textarea style="border: none; width: 100%;" name="" id="" rows="2" placeholder="publier un produit/service ...?"></textarea>
-            <button mat-button mat-flat-button color="accent" type="submit"><mat-icon class="mat-18">send</mat-icon></button>
-          </form>
 
-        </mat-card-header>
-
-      </mat-card>
     </div>
 
 <!--..............................................................................Publier un post................................................................;;-->
-    <div class="publishPost">
-
-      <mat-card class="container-fluid">
-        <mat-card-header>
-          <div mat-card-avatar cstyle="padding-bottom: 20px; border-bottom: 1px solid lightgray;"><img
-            mat-card-avatar
-            src="../../assets/undraw-illustration/profile_picture.png"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" style="max-width:1000px;">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>Contacter</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-   
+<app-entreprise></app-entreprise>
+<app-profile></app-profile>
   </div>
    <!-- barre latéral droit  "-->
   <div class="col-md-3">
     <app-barre-droite></app-barre-droite>
   </div>
 </div>
+
+
+
+
 
 
 

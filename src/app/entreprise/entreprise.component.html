@@ -1,0 +1,32 @@
+<div class="container">
+    <hr>
+    <h5 class="Text-center">Entreprises</h5>
+    <a routerLink="/dashboard" class="text-right"><mat-icon class="mat-18">home</mat-icon> </a>
+    <hr>
+    <button mat-button mat-raised-button color="primary" routerLink="/creer-entreprise" ><mat-icon  color="primary" class="mat-18">add</mat-icon> Créer un Nouvelle Entreprise</button>
+    <hr>
+</div>
+
+  <mat-card class="container" style="margin-bottom: 10px;"
+  *ngFor="let entreprise of entreprises; let i = index"
+              [class.active]="i == currenteIndex"
+              (click)="setActiveProfile(entreprise, i)">
+    <mat-card-title-group class="row">
+      <div class="col-6">
+        <mat-card-title color="primary" class="display-4">{{entreprise.nom}}</mat-card-title>
+        <mat-card-subtitle color="accent"><mat-icon  color="primary" class="mat-18">work</mat-icon> {{entreprise.domaine}}</mat-card-subtitle>
+        <mat-card-subtitle color="accent"><mat-icon  color="primary" class="mat-18">business_center</mat-icon> {{entreprise.secteurActivicte}}</mat-card-subtitle>
+        <mat-card-subtitle color="accent"><mat-icon  color="primary" class="mat-18">phone</mat-icon> {{entreprise.telephone}}</mat-card-subtitle>
+      </div>
+      <div class="col-6">
+         <img matCardImage class="rounded-circle" style="max-width: 150px;  height: 150px; border: solid 2px blueviolet; text-align: center; margin: auto;"  [src]="(entreprise.logo)?entreprise.logo:'../../../assets/undraw-illustration/profile_picture.png'" alt="image de l'entreprise {{entreprise.nom}} situé à {{entreprise.region}}">
+         <mat-card-actions class="text-center">
+            <button mat-button mat-raised-button color="primary"  >Addhérer</button>
+            <button mat-button *ngIf="i == currenteIndex"  [routerLink]="'/voir-entreprise/'+entreprise.id"> <mat-icon color="primary" class="mat-18">details</mat-icon> Details  </button>
+        </mat-card-actions>
+      </div>   
+    </mat-card-title-group>
+    <mat-card-footer class="container">
+        <mat-card-subtitle color="accent"><mat-icon class="mat-18" color="primary">place</mat-icon> Situé à  {{entreprise.region}}</mat-card-subtitle>
+    </mat-card-footer>
+  </mat-card>

@@ -1,35 +1,55 @@
 <!--suppress ALL -->
 <header class="navbar-static-top">
   <mat-toolbar color="primary" class="Navigation">
-    <div>
-      <span class="logo">Communauté PME </span>
-
-    </div>
-
-    <div class="MenuPrincipale" id="idMenuPrincipale">
+<div class="container">
+  <div class="MenuPrincipale" id="idMenuPrincipale">
     <span class="Menu">
-      <a  class="Item-MenuPrincipale" mat-icon-button color="accent">
-         <mat-icon>home</mat-icon><span class="Text-MenuPrincipale" >Acceuil</span>
+      <a routerLink="/dashboard" class="Item-MenuPrincipale"  mat-icon-button color="accent">
+         <mat-icon>home</mat-icon>
       </a>
     </span>
       <span  class="Menu">
       <a mat-icon-button color="accent" class="Item-MenuPrincipale">
-         <mat-icon class="lien">group</mat-icon> <span class="Text-MenuPrincipale">Communautés</span>
+         <mat-icon class="lien">group</mat-icon>
       </a>
     </span>
       <span class="Menu">
-      <a mat-icon-button color="accent" class="Item-MenuPrincipale ">
-         <mat-icon>business_center</mat-icon> <span class="Text-MenuPrincipale">Entreprises</span>
+      <a routerLink="/entreprises" mat-icon-button color="accent" class="Item-MenuPrincipale ">
+         <mat-icon>business_center</mat-icon>
       </a>
     </span>
       <span class="Menu">
       <a routerLink="/profile" mat-button  mat-icon-button color="accent" class="Item-MenuPrincipale ">
-         <mat-icon>account_circle</mat-icon> <span class="Text-MenuPrincipale">Profile</span>
+        <mat-icon>account_circle</mat-icon>
       </a>
     </span>
     </div>
+
+    <div class="MenuPrincipale">
+      <span class="logo">Communauté PME </span>
+
+    </div>
+
+    <div class="MenuPrincipale avatar">
+      <div class="MenuPrincipale dropdown">
+        <a href="#" class=" dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="{{(profile.user.photoURL) ? profile.user.photoURL : '../../assets/undraw-illustration/profile_picture.png'}}" alt="" style="width: 50px; height: 45px; border: solid 2px rgb(208, 187, 227);" class="rounded-circle me-2"  >
+        </a>
+        <ul class="dropdown-menu content text-small " aria-labelledby="dropdownUser1">
+          <li><a  [routerLink]="'/details-profile/'+profile.id" class="dropdown-item" mat-menu mat-menu-item><mat-icon color="primary">person</mat-icon> Voir mon profile</a></li>
+          <li><a  routerLink="/editer-profile" class="dropdown-item" mat-menu mat-menu-item><mat-icon color="primary">edit</mat-icon> Editer mon profile</a></li>
+          <li><a   class="dropdown-item" mat-menu mat-menu-item><mat-icon color="primary">settings</mat-icon> Paramètre</a></li>
+  
+          <li><hr class="dropdown-divider"></li>
+          <li><a  routerLink="/oublier-mot-passe" class="dropdown-item" mat-menu mat-menu-item><mat-icon color="primary">lock</mat-icon>Mot passe Oublier?</a></li>
+          <li><a (click)="auth.SignOut()"  class="dropdown-item" mat-menu mat-menu-item><mat-icon color="primary">exit_to_app</mat-icon > Deconnexion</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+
   </mat-toolbar>
 </header>
-
 
 

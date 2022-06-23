@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FourOFourComponent } from './four-o-four/four-o-four.component';
 import { RouteModule } from './router/route.module';
@@ -18,6 +19,15 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { BarreLateralComponent } from './barre-lateral/barre-lateral.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BarreDroiteComponent } from './barre-droite/barre-droite.component';
+import { ProfileSettingComponent } from './profile/profile-setting/profile-setting.component';
+import { AddProfileComponent } from './profile/add-profile/add-profile.component';
+import { DetailsProfileComponent } from './profile/details-profile/details-profile.component';
+import { EditerProfileComponent } from './profile/editer-profile/editer-profile.component';
+import { EntrepriseComponent } from './entreprise/entreprise.component';
+import { SingleEntrepriseComponent } from './entreprise/single-entreprise/single-entreprise.component';
+import { EntrepriseFormComponent } from './entreprise/entreprise-form/entreprise-form.component';
+
+
 
 
 @NgModule({
@@ -35,7 +45,15 @@ import { BarreDroiteComponent } from './barre-droite/barre-droite.component';
     NavigationComponent,
     BarreLateralComponent,
     ProfileComponent,
-    BarreDroiteComponent
+    BarreDroiteComponent,
+    ProfileSettingComponent,
+    AddProfileComponent,
+    DetailsProfileComponent,
+    EditerProfileComponent,
+    EntrepriseComponent,
+    SingleEntrepriseComponent,
+    EntrepriseFormComponent,
+
   
   ],
   imports: [
@@ -44,6 +62,7 @@ import { BarreDroiteComponent } from './barre-droite/barre-droite.component';
     MaterialModule, // Module Material
     FirebaseModule, // Module Firebase
     RouteModule, //Module Route
+    ReactiveFormsModule
 
 
 

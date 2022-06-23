@@ -1,38 +1,36 @@
-<app-navigation></app-navigation>
-
-<div class="row">
-    <!-- barre latérale gauche -->
-    <div class="col-md-3"></div>
-    <div class="col-md-6 container">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Nom</mat-card-title>
-                <mat-card-subtitle>Profession</mat-card-subtitle>
-                <mat-card-actions > <!--align="start"-->
-                    <button mat-button >Editder </button> <!--(click)="onAction1" -->
-                   
-               </mat-card-actions>
-            </mat-card-header>
-            <img src="../../assets/undraw-illustration/profile_picture.png" width="150" height="auto">
-            <mat-card-content>
-                <mat-tab-group mat-align-tabs="start">
-                    <mat-tab label="Acceuil">Produit</mat-tab>
-                    <mat-tab label="Entreprise">A Propos</mat-tab>
-                    <mat-tab label="Communauté">Content 3</mat-tab>
-                    <mat-tab label="Produits / Service">Produits / Service</mat-tab>
-
-                </mat-tab-group>
-            </mat-card-content>
-
-            <mat-card-footer>
-                Domaine
-            </mat-card-footer>
-        </mat-card>
-
-    </div>
-    <!-- barre latérale droit -->
-    <div class="col-md-3">
-
-    </div>
+<!-- <app-navigation></app-navigation> -->
+<div class="container">
+<hr>
+<h5>Porfiles</h5>
+<a routerLink="/dashboard" class="text-right"><mat-icon class="mat-18">home</mat-icon> </a>
+<hr>
 </div>
+
+<div class="list row ">
+    <div class="list  ">
+        <div class=" container text-center">
+          <ul class="list-group">
+            <li  style="margin-top: 10px;"
+              class="list-group-item"
+              *ngFor="let profile of profiles; let i = index"
+              [class.active]="i == currentIndex"
+              (click)="setActiveProfile(profile, i)"
+            >
+            
+              
+              <img src="{{(profile.user.photoURL)?profile.user.photoURL:'../../assets/undraw-illustration/profile_picture.png'}}" class="rounded-circle mb-3" style="width: 150px; height: 150px; border: solid 4px blueviolet;"
+  alt="Avatar" />
+
+<h5 class="mb-2"><strong>{{ profile.user.displayName?profile.user.displayName:"Inconnu" }}</strong></h5>
+<p class="text-muted">{{ profile.user.email}} <br> <span class="badge bg-primary" *ngIf=" profile.role.adherent">Adhérent</span></p>
+ <a mat-button mat-raised-button color="warning" *ngIf="i == currentIndex"  [routerLink]="'/details-profile/'+profile.id">Details</a> 
+
+</li>
+          </ul> 
+
+          
+        </div>
+
+      </div>
+  </div>
 

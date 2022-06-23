@@ -1,0 +1,36 @@
+<!-- <app-navigation></app-navigation> -->
+<div class="container"><h3 class="text-center">Editer Profile</h3></div>
+
+<div class="container">
+    <div class="">
+      <form [formGroup]="profileForm" (ngSubmit)="onSaveProfile()">
+        <div class="form-group">
+          <label for="displayName">Nom utilisateur </label>
+          <input formControlName="displayName" type="text" id="displayName" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email </label>
+            <input formControlName="email" type="text" id="email" class="form-control">
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="photoURL">Photo </label>
+          <input accept="images/*" (change)="detectFiles($event)"  type="file" id="photoURL" class="form-control">
+           <p class="text-accent" *ngIf="fileUploaded">Fichier téléversé</p> 
+
+     <div *ngIf="fileUploading"> 
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" [style.width.%]="profileService.pourcentage" aria-valuemin="0" aria-valuemax="100">{{profileService.pourcentage | number: '1.0-0'}}%</div>
+          </div>
+      </div> 
+
+
+        </div>
+        <button [disabled]="profileForm.invalid && fileUploaded"  mat-button mat-raised-button color="primary" >Enregister</button>
+      </form>
+    </div>
+  </div>
+

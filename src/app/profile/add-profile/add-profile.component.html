@@ -1,0 +1,67 @@
+<!-- <div class="submit-form">
+    <div *ngIf="!submited">
+
+  
+  
+  
+      <button (click)="saveProfile()" class="btn btn-success">Sauvegarder</button>
+    </div>
+  
+    <div *ngIf="submited">
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newProfile()">Ajouter</button>
+    </div>
+  </div> -->
+
+<!-- 
+  <div class="submit-form">
+    <div *ngIf="!submited">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          (ngModel)=""
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          (ngModel)="profile.user.email"
+          name="description"
+        />
+      </div>
+      <button (click)="saveProfile()" class="btn btn-success">Sauvegarder</button>
+    </div>
+    <div *ngIf="submited">
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newProfile()">AJouter</button>
+    </div>
+  </div> -->
+
+
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+      <div class="form-group">
+        <label for="email">email </label>
+        <input formControlName="email" type="text" id="email" class="form-control">
+      </div>
+
+      <!-- <div class="form-group">
+        <h3>Photo</h3>
+        <label for="photo">Photo </label>
+        <input accept="image/*" (change)="detectFiles($event)" formControlName="photo" type="file" id="photo" class="form-control">
+        <p class="text-info" *ngIf="fileUploaded">Fichier téléversé</p>
+      </div> -->
+      <!-- <button [disabled]="bookForm.invalid && fileUploaded"  class="btn btn-primary">Enregister</button> -->
+    </form>
+  </div>
+</div>

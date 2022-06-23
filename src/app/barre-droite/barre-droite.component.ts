@@ -1,3 +1,4 @@
+import { getAuth } from 'firebase/auth';
 import { AuthService } from './../firebase/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./barre-droite.component.scss']
 })
 export class BarreDroiteComponent implements OnInit {
+  auth = getAuth()
+  user = this.auth.currentUser
 
   constructor(public authService:AuthService) { }
 

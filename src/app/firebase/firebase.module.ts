@@ -1,3 +1,4 @@
+import { ProfileService } from './../profile/service/profile.service';
 import { AuthService } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import {AngularFireModule} from "@angular/fire/compat";
@@ -18,6 +19,6 @@ const FirebaseBackend = [
 @NgModule({
   imports: [FirebaseBackend],
   exports: [FirebaseBackend],
-  providers: [AuthService]
+  providers: [AuthService, ProfileService]
 })
 export class FirebaseModule { }

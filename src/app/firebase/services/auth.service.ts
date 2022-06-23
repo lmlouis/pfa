@@ -1,10 +1,15 @@
+
+import { ProfileService } from './../../profile/service/profile.service';
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
 import { Observable } from 'rxjs';
+import { Profile } from 'src/app/profile/model/profile.model';
+import { Roles } from 'src/app/profile/model/role.model';
 import { User } from './../../auth/model/user';
+import { getAuth } from 'firebase/auth';
 
 
 
@@ -15,12 +20,22 @@ export class AuthService {
   userData: any;
   user$!: Observable<User>;
 
+  profile: Profile = new Profile();
+  user: any;
+  role = Roles;
+
+  Auth = getAuth();
+  userCurrente = this.Auth.currentUser
+
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    public profileService :ProfileService
   ) {
+
+
 
     // Sauvegarder les données dans le local storage au moment du logout
 
@@ -64,6 +79,10 @@ export class AuthService {
       emailVerified: user.emailVerified,
      
     };
+
+    this.user = userData;
+    this.updataProfile(this.user);
+
     return userRef.set(userData, {merge: true});
   }
 
@@ -83,6 +102,8 @@ export class AuthService {
         /* appel du verification de Email */
         this.SendVerificationMail();
         this.SetUserData(result.user)
+        this.profileService.createProfile(this.profile)
+       
       })
     ;
   }
@@ -100,7 +121,7 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(()=>{
-        window.alert('Mot de pass réinitilisé, Verifier !')
+        console.log('Mot de pass réinitilisé, Verifier !');
       })
       .catch((error)=>{
         console.log(error);
@@ -115,27 +136,68 @@ export class AuthService {
   }
 
 
-  // Sign in with Google
-  GoogleAuth(){
-    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any)=>{
-      if(res){
-        this.router.navigate(['dashboard'])
-      }
+  // // Sign in with Google
+  // GoogleAuth(){
+    
+  //   return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any)=>{
+  //     if(res){
+  //       this.router.navigate(['dashboard'])
+        
+  //     }
+  //   })
+  // }
+  // AuthLogin(provider: auth.GoogleAuthProvider) {
+  //   return this.afAuth
+  //     .signInWithPopup(provider)
+  //     .then((rseult)=>{
+  //       this.ngZone.run(()=>{
+  //         this.router.navigate(['dashboard'])
+  //         this.SetUserData(rseult.user);
+  //       });
+        
+        
+  //     }).catch((error)=>{
+  //       console.log(error);
+  //     });
+
+  // }
+
+  rechercherProfileCourantByUserID(id : string): Profile{
+    let rechercherProfileCourantByUserID = this.afs.collection("profile").ref.where("user.uid", "==", id)
+
+    rechercherProfileCourantByUserID.get().then((p)=>{
+      p.forEach((doc)=>{
+        let data :Profile|any = doc
+        this.profile.id = data.id 
+        // @ts-ignore
+        this.profile.user = data.data().user
+        this.profile.role = data.data().role 
+        
+
+      })
     })
+    return this.profile;
   }
-  AuthLogin(provider: auth.GoogleAuthProvider) {
-    return this.afAuth
-      .signInWithPopup(provider)
-      .then((rseult)=>{
-        this.ngZone.run(()=>{
-          this.router.navigate(['dashboard'])
-        });
-        this.SetUserData(rseult.user);
-      }).catch((error)=>{
-        console.log(error);
-      });
+
+  getProfileConected(currenteUser : User | null): Profile{
+    if(currenteUser){
+      this.profile = this.rechercherProfileCourantByUserID(currenteUser.uid)
+    }
+    return this.profile;
 
   }
+  
+  updataProfile(user : any ):void {
+
+    this.profile.user.displayName = user.displayName;
+    this.profile.user.email = user.email;
+    this.profile.user.photoURL = user.photoURL;
+    this.profile.user.uid = user.uid;
+    this.profile.user.emailVerified = user.emailVerified;
+    this.profile.setRole(this.role.adherent);
+    
+  }
+
 
   
 

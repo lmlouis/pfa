@@ -1,0 +1,64 @@
+
+  <app-navigation></app-navigation>
+
+<div class="container" *ngIf="currentProfile">
+   <h1 class="text-center">Profile {{(currentProfile.user.displayName)?'de '+currentProfile.user.displayName:''}}</h1> 
+</div>
+
+
+<div class="container" *ngIf="currentProfile">
+  <div class="main-body">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card bg-transparent border-primary">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center bg-transparent">
+              <img src="{{(currentProfile.user.photoURL)?currentProfile.user.photoURL:'../../assets/undraw-illustration/profile_picture.png'}}"  style="width: 150px; height: 150px; border: solid 4px blueviolet;" alt="Admin" class="rounded-circle " width="110">
+              <div class="mt-3">
+                <h4>{{(currentProfile.user.displayName)?currentProfile.user.displayName:'Inconnu'}}</h4>
+                <p class="text-secondary mb-1">{{(currentProfile.user.email)?currentProfile.user.email:''}}</p>
+                <p *ngIf="currentProfile.role.adherent" class="text-muted font-size-sm">Adhérent</p>
+                <p *ngIf="currentProfile.role.entreprise" class="text-muted font-size-sm">Responsable Entreprise</p>
+                <p *ngIf="currentProfile.role.communaute" class="text-muted font-size-sm">Responsable Communauté/p>
+              </div>
+            </div>
+            <hr class="my-4">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card bg-transparent border-primary">
+          <div class="card-body">
+             <div *ngIf="getStatutAdmin(uid, currentProfile.user.uid) == true"><app-editer-profile></app-editer-profile></div>
+             <div *ngIf="getStatutAdmin(uid, currentProfile.user.uid) == false">  
+               <h4 class="text-center">Compte Utilisateur  </h4>         
+              <div class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0"> <mat-icon color="primary" class="mat-18">person</mat-icon> Nom : </h6>
+              </div>
+              <div class="col-sm-9 ">
+                <p>{{(currentProfile.user.displayName)?currentProfile.user.displayName:"Inconnu"}}</p>
+              </div>
+            </div>
+
+            <div  class="row mb-3">
+              <div class="col-sm-3">
+                <h6 class="mb-0"><mat-icon color="primary" class="mat-18">email</mat-icon> Adresse Email : </h6>
+              </div>
+              <div class="col-sm-9 ">
+                <p>{{currentProfile.user.email}}</p>
+              </div>
+            </div> 
+          </div>
+            
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

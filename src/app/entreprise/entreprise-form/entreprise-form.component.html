@@ -1,0 +1,92 @@
+
+
+
+<div class="container">
+
+    <div class="">
+      <form [formGroup]="entrepriseForm" (ngSubmit)="onSaveEntreprise()">
+        <hr>
+        <h5 class="text-center"> Créer une Entreprise</h5>
+        <hr>
+        <div class="form-group">
+          <label for="nom"><mat-icon class="mat-18" color="primary">person</mat-icon> Nom</label>
+          <input formControlName="nom" type="text" id="nom" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="region"><mat-icon class="mat-18" color="primary">place</mat-icon> Région</label>
+            <select  formControlName="region" type="text" id="region" class="form-control">
+                <option [value]="region.Estuaire">{{region.Estuaire}}</option>
+                <option [value]="region.HautOgooue">{{region.HautOgooue}}</option>
+                <option [value]="region.MoyenOgooue">{{region.MoyenOgooue}}</option>
+                <option [value]="region.Ngounie">{{region.Ngounie}}</option>
+                <option [value]="region.Nyanga">{{region.Nyanga}}</option>
+                <option [value]="region.OgooueIvindo">{{region.OgooueIvindo}}</option>
+                <option [value]="region.OgooueLolo">{{region.OgooueLolo}}</option>
+                <option [value]="region.OgooueMaritime">{{region.OgooueMaritime}}</option>
+                <option [value]="region.WoleuNtem">{{region.WoleuNtem}}</option>
+            </select>   
+        </div>
+        <div class="form-group">
+            <label for="telephone"><mat-icon class="mat-18" color="primary">phone</mat-icon> Télephone</label>
+            <input formControlName="telephone" type="text" id="telephone" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="description"><mat-icon class="mat-18" color="primary">description</mat-icon> Description</label>
+            <textarea formControlName="description" type="text" id="description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="secteurActivicte"><mat-icon class="mat-18" color="primary">local_activity</mat-icon> Secteur d'Activicté</label>
+            <select  formControlName="secteurActivicte" type="text" id="secteurActivicte" class="form-control">
+                <option [value]="secteur.Commercial">{{secteur.Commercial}}</option>
+                <option [value]="secteur.Industriel">{{secteur.Industriel}}</option>
+                <option [value]="secteur.Service">{{secteur.Service}}</option>
+            </select>   
+        </div>
+
+        <div class="form-group">
+            <label for="domaine"><mat-icon class="mat-18" color="primary">domain</mat-icon> Domaine d'Activicté</label>
+            <select  formControlName="domaine" type="text" id="domaine" class="form-control">
+                <option [value]="domaine.Artisanat">{{domaine.Artisanat}}</option>
+                <option [value]="domaine.BTP">{{domaine.BTP}}</option>
+                <option [value]="domaine.Commercial">{{domaine.Commercial}}</option>
+                <option [value]="domaine.Digitale">{{domaine.Digitale}}</option>
+                <option [value]="domaine.Ecommerce">{{domaine.Ecommerce}}</option>
+                <option [value]="domaine.Paramedicale">{{domaine.Paramedicale}}</option>
+                <option [value]="domaine.Sante">{{domaine.Sante}}</option>
+                <option [value]="domaine.Service">{{domaine.Service}}</option>
+                <option [value]="domaine.Transport">{{domaine.Transport}}</option>
+            </select>   
+        </div>
+        <hr>
+
+        <div formArrayName="listProduit" class="form-group">
+          <p><mat-icon class="mat-18" color="primary">storage</mat-icon> Lister vos Services & Produits ?</p>
+          <div *ngFor="let listProduitControl of getlistProduit().controls; let i = index">
+            <label><mat-icon class="mat-18" color="primary">format_list_numbered</mat-icon> Service n°{{  i+1}}</label>
+            <input type="text" class="form-control" id="listProduit" [formControlName]="i">
+          </div>
+          <button (click)="ongetlistProduit()" type="button" mat-button mat-raised-button color="primary"><mat-icon class="mat-18">add</mat-icon> ajouter un autre </button>
+        </div>
+        <hr>
+
+        <div class="form-group">
+          <label for="logo"><mat-icon class="mat-18" color="primary">image</mat-icon> Logo</label>
+
+          <input accept="image/*" (change)="detectFiles($event)" formControlName="logo" type="file" id="logo" class="form-control"> 
+          <p style="color: rgb(32, 32, 95);" *ngIf="fileUploaded">Fichier téléversé</p>
+          <hr>
+          <div *ngIf="fileUploading"> 
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" [style.width.%]="entrepriseService.pourcentage" aria-valuemin="0" aria-valuemax="100">{{entrepriseService.pourcentage | number: '1.0-0'}}%</div>
+            </div>
+        </div>  
+        </div>
+        <hr>
+        <button [disabled]="entrepriseForm.invalid && fileUploaded"  mat-button mat-raised-button color="primary"><mat-icon class="mat-18" color="primary">save</mat-icon> Enregister</button> 
+      </form>
+    </div>
+  </div>
+
+

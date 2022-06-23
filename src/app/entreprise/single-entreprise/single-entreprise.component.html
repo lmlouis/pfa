@@ -1,0 +1,53 @@
+
+<hr>
+
+
+
+
+
+<mat-card class="container">
+  <mat-card-title-group class="row">
+    <div class="col-6">
+      <mat-card-title color="primary" class="display-4">{{entreprise.nom}}</mat-card-title>
+      <mat-card-subtitle color="accent"><mat-icon  color="primary" class="mat-18">work</mat-icon> {{entreprise.domaine}}</mat-card-subtitle>
+      <mat-card-subtitle color="accent"><mat-icon  color="primary" class="mat-18">business_center</mat-icon> {{entreprise.secteurActivicte}}</mat-card-subtitle>
+      <mat-card-subtitle color="accent"><mat-icon  color="primary" class="mat-18">phone</mat-icon> {{entreprise.telephone}}</mat-card-subtitle>
+      <mat-card-subtitle color="accent"><mat-icon class="mat-18" color="primary">place</mat-icon> Situé à  {{entreprise.region}}</mat-card-subtitle>
+      <!-- <mat-card-subtitle color="accent"><mat-icon class="mat-18" color="primary">person</mat-icon> Responsable  :   {{entreprise.region}}</mat-card-subtitle> -->
+    </div>
+    <div class="col-6">
+      <img matCardImage class="rounded-circle" style="max-width: 150px;  height: 150px; border: solid 2px blueviolet; text-align: center; margin: auto;"  [src]="(entreprise.logo)?entreprise.logo:'../../../assets/undraw-illustration/profile_picture.png'" alt="image de l'entreprise {{entreprise.nom}} situé à {{entreprise.region}}">
+      <mat-card-actions class="text-center">
+         <button *ngIf="currenteUser?.uid !== '' && currenteUser?.uid !== entreprise.idResponsable" mat-button mat-raised-button color="primary"  >Addhérer {{currenteUser?.uid == entreprise.idResponsable}}</button>
+         
+     </mat-card-actions>
+   </div> 
+  </mat-card-title-group>
+  
+  <mat-card-content>
+
+    <mat-tab-group>
+      <mat-tab label="A propos ">
+        <p class="card-text">
+            {{entreprise.description}}
+        </p> 
+    </mat-tab>
+      <mat-tab label="Produits & services"> 
+        <mat-list role="list">
+          <mat-list-item *ngFor="let service of entreprise.listProduit" role="listitem">{{ service }}</mat-list-item>
+
+        </mat-list>
+        
+      </mat-tab>
+      <mat-tab label="Adhérents"> Content 3 </mat-tab>
+    </mat-tab-group>
+
+  </mat-card-content>
+  <mat-card-actions>
+      
+  </mat-card-actions>
+  <mat-card-footer>
+    <button mat-button (click)="onBack()"> <mat-icon color="primary" class="mat-18">arrow_back</mat-icon> Revenir  </button>
+    <div class="text-muted h7 mb-2"></div>
+  </mat-card-footer>
+</mat-card>

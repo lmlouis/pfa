@@ -1,101 +1,61 @@
-@import "../material/custom-theme";
-/*---------------------------Menu principal------------------------*/
-
-
-.MenuPrincipale a {
-  margin-left: 40px;
-}
-.Item-MenuPrincipale{
-  width: auto;
-}
-
-
-a.Item-MenuPrincipale{
-  height: auto;
-  padding: 20px;
-}
-.Item-MenuPrincipale span{
-  margin-left: 3px;
-}
-
-.Navigation{
+.MenuPrincipale{
+  display: inline;
   justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 10%;
 
 }
-
-.Navigation div span{
-  font-size: small;
+.Menu{
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .logo{
-  font-size: medium;
+  font-size: large;
+  font-weight: 500;
 }
 
-.nav.fixed{
-  position:fixed;
-  top:0;
-  z-index:1000;
+.avatar li a {
+  color: black;
 }
 
-/*---------------------------Menu Latérale------------------------*/
-.barre-latéral-container {
-  width:20%;
-  height: 100%;
-  float: left;
-  background: rgb(0, 0, 0, 0.0);
-}
-
-.sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.Container-sidenav {
-  width: 85%;
-}
-
-.position-menu{
-  position: absolute;
-  top: 2px;
-  left: 2px;
-}
-
-
-
-
-
-
-@media screen and (max-width: 812px) {
-  .Text-MenuPrincipale {display: none;}
-  span a.Menu {
-    float: right;
-    display: block;
+@media screen and (max-width: 1200px) {
+  div.avatar .content, div.avatar mat-icon{
+    font-size: x-small;
+     
   }
-  a.Item-MenuPrincipale{
-    padding: 7px;
+  .MenuPrincipale{
+    margin-left: 2%;
+    margin-right: 7%;
+  }
+ 
+
+  .Menu{
+    margin-left: 2%;
+    margin-right: 5%;
+  }
+  .avatar ul{
+    font-size: small;
+    width: 30px;
   }
 
-
-  .barre-latéral-container {
-    width:80%;
-    height: 100%;
-    //border: 1px solid rgba(0, 0, 0, 0.5);
-  }
 }
-
-@media screen and (max-width: 600px) {
-  .Navigation{
-    justify-content: center;
-    display: block;
-
+@media screen and (max-width: 800px) {
+  .MenuPrincipale{
+    margin-left: 1%;
+    margin-right: 1%;
   }
-  .logo { float: right;
-  margin-bottom: 5px;}
-  .Item-MenuPrincipale{margin-top: 5px; }
-  span a.Menu{justify-content: center; text-align: center;
-              padding: 0;}
+  .logo{
+    display: none;
+  }
+
+  .Menu{
+    margin-left: 1%;
+    margin-right: 5%;
+  }
+  .avatar ul{
+    font-size: small;
+    width: 30px;
+  }
 
 }
-
